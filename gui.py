@@ -14,10 +14,10 @@ window.title("This will be the OSINT dashboard")
 #fonts
 faceFont=tkFont.Font(family='Segoe UI')
 twitterFont=tkFont.Font(family='Helvetica Neue')
-redditFont=tkFont.Font(family='TS Volkswagen')
+redditFont=tkFont.Font(family='TS Volkswagen Medium')
 
 lbl=Label(window, text="Select the platform to search")
-lbl.grid(row=0, column=0)
+lbl.grid(row=0, column=0, columnspan=2)
 
 #btn stuff
 #first reddit

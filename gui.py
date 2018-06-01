@@ -1,35 +1,36 @@
 #just tryin make uh good good ui
 
 #first test
-from Tkinter import *
-import tkFont
+from tkinter import *
+from tkinter import messagebox
 
 window = Tk()
 
 #ya boi, get that window size
-#window.geometry('1000x750')
+#window.geometry('700x500')
 
 window.title("This will be the OSINT dashboard")
 
-#fonts
-faceFont=tkFont.Font(family='Segoe UI')
-twitterFont=tkFont.Font(family='Helvetica Neue')
-redditFont=tkFont.Font(family='TS Volkswagen Medium')
+def clicked_redd():
+    messagebox.showinfo('REDDIT OSINT', 'osinting the reddit')
+def clicked_twit():
+    messagebox.showinfo('TWITTER OSINT', 'osinting the twitter')
+def clicked_face():
+    messagebox.showinfo('FACEBOOK OSINT', 'osinting the facebook')
+
 
 lbl=Label(window, text="Select the platform to search")
-lbl.grid(row=0, column=0, columnspan=2)
+lbl.grid(row=0, column=0, columnspan=3)
 
 #btn stuff
 #first reddit
-reddit_btn = Button(window, text="Reddit OSINT", bg='#FF4500', height=5, width=25, font=redditFont)
-reddit_btn.grid(row=1, column=0)
+reddit_btn = Button(window, text="Reddit OSINT", bg='#FF4500', height=5, width=25, command=clicked_redd)
+reddit_btn.grid(row=2, column=0)
 #then twitter
-twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', height=5, width=25, font=twitterFont)
-twitter_btn.grid(row=2, column=0)
+twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', height=5, width=25, command=clicked_twit)
+twitter_btn.grid(row=2, column=1)
 #and facebook too
-facebook_btn = Button(window, text="Facebook OSINT", bg='#3b5998', height=5, width=25, font=faceFont)
-facebook_btn.grid(row=3, column=0)
-
-
+facebook_btn = Button(window, text="Facebook OSINT", bg='#3b5998', height=5, width=25, command=clicked_face)
+facebook_btn.grid(row=2, column=2)
 
 window.mainloop()

@@ -1,6 +1,7 @@
 ## will hopefully scrape reddit for information
 
 #! usr/bin/env python3
+
 import praw
 import pandas as pd
 import datetime as dt
@@ -50,3 +51,4 @@ def reddit_osint():
 
     ##creating csv
     topics_data.to_csv('redditdata.csv', Index=False)
+

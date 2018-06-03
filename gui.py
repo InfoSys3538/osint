@@ -2,8 +2,9 @@
 
 #first test
 from tkinter import *
-from tkinter.ttk import *
+#from tkinter.ttk import *
 from tkinter import messagebox
+from reddit_test import reddit_osint
 
 window = Tk()
 
@@ -18,8 +19,10 @@ def clicked_redd():
     reddit=Toplevel(bg='#FF4500')
     #reddit.geometry('500x350')
     reddit.title("REDDIT OSINT")
-    redlbl=Label(reddit, text="osinting the reddit", bg='#FF4500', font=(20), height=10, width=25)
+    redlbl=Label(reddit, text="osinting the reddit", bg='#FF4500', font=(20))
     redlbl.grid(row=0, column=0, columnspan=3)
+    reddbtn=Button(reddit, text="Press to osint reddit", bg='#FF4500', height=10, width=25, command=reddit_osint)
+    reddbtn.grid(row=1, column=0)
 
 def clicked_twit():
     #messagebox.showinfo('TWITTER OSINT', 'osinting the twitter')

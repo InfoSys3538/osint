@@ -5,11 +5,12 @@ from tkinter import *
 #from tkinter.ttk import *
 from tkinter import messagebox
 from reddit_test import reddit_osint
+import sys
 
 window = Tk()
 
 #ya boi, get that window size
-#window.geometry('700x500')
+#window.geometry('0x500')
 
 window.title("This will be the OSINT dashboard")
 
@@ -44,6 +45,8 @@ def clicked_face():
 
 lbl=Label(window, text="Select the platform to search")
 lbl.grid(row=0, column=0, columnspan=3)
+emplbl=Label(window, bg='white', width=75, height=10, text="OUTPUT")
+emplbl.grid(row=3, column=0, columnspan=3, rowspan=5)
 
 #btn stuff
 #first reddit

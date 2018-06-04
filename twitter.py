@@ -34,11 +34,13 @@ def twitter():
 	r = input("Enter search radius in km: ")
 	geo = "{},{},{}km".format(lat, long, r)
 
-	count = 1
+	count = 0
 	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(1000)]
 	for item in geo_tweets:
 		print (count)
+		print (item.user.name)
 		print (item.text)
+		print (item.created_at)
 		count += 1
 		format["username"].append(item.user.name)
 		format["tweet"].append(item.text)

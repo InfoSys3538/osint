@@ -7,6 +7,7 @@ from tkinter import *
 from tkinter import messagebox
 from reddit_test import reddit_osint
 import subprocess as sub
+import traceback
 import sys
 
 
@@ -40,6 +41,12 @@ def clicked_face():
     facelbl=Label(facebook, text="osinting the facebook", bg='#3b5998', font=(20), height=10, width=25)
     facelbl.grid(row=0, column=0, columnspan=3)
 
+def clear_text():
+    window.text_box.configure(state="normal")
+    window.text_box.delete(1.0, END)
+    window.text_box.configure(state="disabled")
+
+
 class IORedirector(object):
    '''A general class for redirecting I/O to this Text widget.'''
    def __init__(window,text_area):
@@ -63,6 +70,9 @@ padlbl=Label(window, height=1)
 padlbl.grid(row=5)
 sys.stdout = StdoutRedirector(window.text_box)
 sys.stderr = StdoutRedirector(window.text_box)
+detail = traceback.format_exc()
+detail = StdoutRedirector(window.text_box)
+
 
 #btn stuff
 #first reddit
@@ -74,5 +84,9 @@ twitter_btn.grid(row=2, column=1)
 #and facebook too
 facebook_btn = Button(window, text="Facebook OSINT", bg='#3b5998', height=5, width=25, command=clicked_face)
 facebook_btn.grid(row=2, column=2)
+#clear text button
+clear_text=Button(window, text="Clear", command=clear_text)
+clear_text.grid(row=6, column=2)
+
 
 window.mainloop()

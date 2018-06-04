@@ -13,13 +13,13 @@ reddit = praw.Reddit(client_id='e3Vgbf0tP4TLGg', \
                      password='sniperdude1499')
 
 ##accessing subreddit and storing it in 'subreddit' variable
-subreddit = reddit.subreddit('aww')
+subreddit = reddit.subreddit(input('Enter the subreddit to scrape:'))
 
 ##creates a list of the top 50 posts in the subreddit
 top_subreddit = subreddit.top(limit=50)
 
 ##specifies which parts of post to capture
-topics_dict = { "title":[], \
+topics_dict = { "Title":[], \
                 "score":[], \
                 "id":[], "url":[], \
                 "comms_num": [], \
@@ -27,7 +27,7 @@ topics_dict = { "title":[], \
 
 ##pulls information from each post
 for submission in top_subreddit:
-    topics_dict["title"].append(submission.title)
+    topics_dict["Title"].append(submission.title)
     topics_dict["score"].append(submission.score)
     topics_dict["id"].append(submission.id)
     topics_dict["url"].append(submission.url)

@@ -15,6 +15,9 @@ def reddit_osint():
                          password='sniperdude1499')
 
     ##accessing subreddit and storing it in 'subreddit' variable
+    subreddit = reddit.subreddit(input('Enter the subreddit to scrape:'))
+    
+    
     subreddit = reddit.subreddit('aww')
 
     ##creates a list of the top 50 posts in the subreddit

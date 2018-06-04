@@ -19,7 +19,7 @@ def twitter():
 		api = tweepy.API(auth)
 		user = api.get_user('2018Osint')
 
-		print ("Processing...")
+		#print ("Processing...")
 
 	except tweepy.TweepError:
 		raise SystemExit("Error. Failed to connect to Twitter.")
@@ -34,14 +34,8 @@ def twitter():
 	r = input("Enter search radius in km: ")
 	geo = "{},{},{}km".format(lat, long, r)
 
-	count = 0
 	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(1000)]
 	for item in geo_tweets:
-		print (count)
-		print (item.user.name)
-		print (item.text)
-		print (item.created_at)
-		count += 1
 		format["username"].append(item.user.name)
 		format["tweet"].append(item.text)
 		format["time"].append(item.created_at)
@@ -49,3 +43,6 @@ def twitter():
 
 	format = pd.DataFrame(format)
 	format.to_csv('twitterdata.csv')
+
+twitter()
+#added for testing

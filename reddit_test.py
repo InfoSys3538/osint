@@ -9,7 +9,7 @@ import datetime as dt
 def reddit_osint():
     ##connect to reddit and store in variable 'reddit'
     reddit = praw.Reddit(client_id='e3Vgbf0tP4TLGg',
-                         client_secret='_Sy6Ybkvmgp94LekrcvT1U0EBwg ',
+                         client_secret='_Sy6Ybkvmgp94LekrcvT1U0EBwg',
                          user_agent='infosec project',
                          username='dtlz89',
                          password='sniperdude1499')
@@ -46,7 +46,7 @@ def reddit_osint():
 
     topics_data = topics_data.assign(timestamp = _timestamp)
 
-    ##pandas makes this look nicer 
+    ##pandas makes this look nicer
     topics_data = pd.DataFrame(topics_dict)
 
     ##creating csv

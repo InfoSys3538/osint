@@ -7,6 +7,7 @@ from tkinter import *
 from tkinter import messagebox
 from reddit_test import reddit_osint
 import subprocess as sub
+import tkinter.scrolledtext as tkst
 import traceback
 import sys
 
@@ -14,11 +15,6 @@ import sys
 window = Tk()
 
 window.title("This will be the OSINT dashboard")
-
-###################################
-# Trying to output to GUI instead #
-# of the console                  #
-###################################
 
 #eventually the functions will run the osint
 def clicked_redd():
@@ -46,7 +42,11 @@ def clear_text():
     window.text_box.delete(1.0, END)
     window.text_box.configure(state="disabled")
 
-
+###################################
+# Trying to output to GUI instead #
+# of the console                  #
+###################################
+#functions to redirect console output to GUI
 class IORedirector(object):
    '''A general class for redirecting I/O to this Text widget.'''
    def __init__(window,text_area):
@@ -59,20 +59,24 @@ class StdoutRedirector(IORedirector):
       window.text_area.config(state = "normal")
       window.text_area.config(state = "disabled")
 
-window.text_box = Text(window, wrap='word')
+#display the output
 
+window.text_box = tkst.ScrolledText(window, wrap='word')
+window.text_box.grid(row=4, column=0, columnspan=3, rowspan=1)
+message="this is a test"
+message = StdoutRedirector(window.text_box)
+sys.stdout = StdoutRedirector(window.text_box)
+sys.stderr = StdoutRedirector(window.text_box)
+sys.last_traceback = StdoutRedirector(window.text_box)
+
+
+#formatting gui window
 lbl=Label(window, text="Select the platform to search")
 lbl.grid(row=0, column=0, columnspan=3)
 padlbl=Label(window, height=1)
 padlbl.grid(row=3)
-window.text_box.grid(row=4, column=0, columnspan=3, rowspan=1)
 padlbl=Label(window, height=1)
 padlbl.grid(row=5)
-sys.stdout = StdoutRedirector(window.text_box)
-sys.stderr = StdoutRedirector(window.text_box)
-detail = traceback.format_exc()
-detail = StdoutRedirector(window.text_box)
-
 
 #btn stuff
 #first reddit

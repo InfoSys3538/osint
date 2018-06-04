@@ -9,6 +9,7 @@ from reddit_test import reddit_osint
 import subprocess as sub
 import traceback
 import sys
+from twitter import twitter
 
 
 window = Tk()
@@ -68,18 +69,15 @@ padlbl.grid(row=3)
 window.text_box.grid(row=4, column=0, columnspan=3, rowspan=1)
 padlbl=Label(window, height=1)
 padlbl.grid(row=5)
-sys.stdout = StdoutRedirector(window.text_box)
-sys.stderr = StdoutRedirector(window.text_box)
-detail = traceback.format_exc()
-detail = StdoutRedirector(window.text_box)
-
+#sys.stdout = StdoutRedirector(window.text_box)
+#sys.stderr = StdoutRedirector(window.text_box)
 
 #btn stuff
 #first reddit
 reddit_btn = Button(window, text="Reddit OSINT", bg='#FF4500', height=5, width=25, command=reddit_osint)
 reddit_btn.grid(row=2, column=0)
 #then twitter
-twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', height=5, width=25, command=clicked_twit)
+twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', height=5, width=25, command=twitter)
 twitter_btn.grid(row=2, column=1)
 #and facebook too
 facebook_btn = Button(window, text="Facebook OSINT", bg='#3b5998', height=5, width=25, command=clicked_face)

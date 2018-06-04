@@ -1,8 +1,9 @@
 import json
 import tweepy
+import pandas as pd
 from tweepy import OAuthHandler
 
-define twitter():
+def twitter():
 
 	try :
 
@@ -23,17 +24,29 @@ define twitter():
 	except tweepy.TweepError:
 		raise SystemExit("Error. Failed to connect to Twitter.")
 
+	#set up csv file format
+	format = { "username":[], \
+ 		   "tweet":[], \
+		   "time":[]}
+
 	lat = input("Enter latitude: ")
 	long = input("Enter longitude: ")
 	r = input("Enter search radius in km: ")
 	geo = "{},{},{}km".format(lat, long, r)
 
 	count = 1
-	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(100)]
+	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(1000)]
 	for item in geo_tweets:
 		print (count)
 		print (item.text)
 		count += 1
+		format["username"].append(item.user.name)
+		format["tweet"].append(item.text)
+		format["time"].append(item.created_at)
 		#Can print other information and format or write to file as needed
 
+	format = pd.DataFrame(format)
+	format.to_csv('twitterdata.csv')
 
+
+twitter()

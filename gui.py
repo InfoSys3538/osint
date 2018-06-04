@@ -1,5 +1,8 @@
 #just tryin make uh good good ui
 
+#Known errors:
+#Twitter function runs on startup
+
 #first test
 import tkinter as tk
 from tkinter import *
@@ -7,7 +10,7 @@ from tkinter import *
 from tkinter import messagebox
 from reddit_test import reddit_osint
 import subprocess as sub
-import traceback
+#import traceback
 import sys
 from twitter import twitter
 
@@ -77,7 +80,7 @@ padlbl.grid(row=5)
 reddit_btn = Button(window, text="Reddit OSINT", bg='#FF4500', height=5, width=25, command=reddit_osint)
 reddit_btn.grid(row=2, column=0)
 #then twitter
-twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', height=5, width=25, command=twitter)
+twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', height=5, width=25, command=twitter) #modifying this line
 twitter_btn.grid(row=2, column=1)
 #and facebook too
 facebook_btn = Button(window, text="Facebook OSINT", bg='#3b5998', height=5, width=25, command=clicked_face)

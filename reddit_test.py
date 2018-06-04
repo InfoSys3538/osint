@@ -25,7 +25,6 @@ def reddit_osint():
                     "score":[], \
                     "id":[], "url":[], \
                     "comms_num": [], \
-                    "created": [], \
                     "body":[]}
 
     ##pulls information from each post
@@ -35,9 +34,9 @@ def reddit_osint():
         topics_dict["id"].append(submission.id)
         topics_dict["url"].append(submission.url)
         topics_dict["comms_num"].append(submission.num_comments)
-        topics_dict["created"].append(submission.created)
         topics_dict["body"].append(submission.selftext)
 
+<<<<<<< HEAD
     ##fixing date formatting
     def get_date(created):
          return dt.datetime.fromtimestamp(created)
@@ -47,8 +46,10 @@ def reddit_osint():
     topics_data = topics_data.assign(timestamp = _timestamp)
 
     ##pandas makes this look nicer
+=======
+    ##pandas makes this look nicer 
+>>>>>>> 4b6a9fdb8983b60b0bcba10e9d66159571a71e8a
     topics_data = pd.DataFrame(topics_dict)
 
     ##creating csv
-    topics_data.to_csv('redditdata.csv', Index=False)
-
+    topics_data.to_csv('redditdata.csv')

@@ -8,14 +8,10 @@ import tkinter as tk
 from tkinter import *
 #from tkinter.ttk import *
 from tkinter import messagebox
-from reddit_test import reddit_osint
+from reddit import reddit_osint
 import subprocess as sub
-<<<<<<< HEAD
 import tkinter.scrolledtext as tkst
 import traceback
-=======
-#import traceback
->>>>>>> 45a14d23d9cd2dba428706b1521615003ea3f895
 import sys
 from twitter import twitter
 
@@ -85,11 +81,8 @@ padlbl=Label(window, height=1)
 padlbl.grid(row=3)
 padlbl=Label(window, height=1)
 padlbl.grid(row=5)
-<<<<<<< HEAD
-=======
 #sys.stdout = StdoutRedirector(window.text_box)
 #sys.stderr = StdoutRedirector(window.text_box)
->>>>>>> 45a14d23d9cd2dba428706b1521615003ea3f895
 
 #btn stuff
 #first reddit

@@ -32,7 +32,6 @@ text_input7=Entry(window, font=('Times', 20))
 text_input8=Entry(window, font=('Times', 20))
 
 
-
 #eventually the functions will run the osint
 def clicked_face():
     facebook=Toplevel(bg='#3b5998')
@@ -57,36 +56,49 @@ def revert_label(event):
 
 #create entry widgets for user input
 def user_input():
-    label_input=Label(window, text="Enter consumer key", font=('Times', 20))
-    label_input.grid()
-#    text_input1=Entry(window, font=(20))
+    def clear_twit():
+        label_input1.grid_forget()
+        label_input2.grid_forget()
+        label_input3.grid_forget()
+        label_input4.grid_forget()
+        label_input5.grid_forget()
+        label_input6.grid_forget()
+        label_input7.grid_forget()
+        text_input1.grid_forget()
+        text_input2.grid_forget()
+        text_input3.grid_forget()
+        text_input4.grid_forget()
+        text_input5.grid_forget()
+        text_input6.grid_forget()
+        text_input7.grid_forget()
+        submit_btn.grid_forget()
+        clear_twit_btn.grid_forget()
+
+    label_input1=Label(window, text="Enter consumer key", font=('Times', 20))
+    label_input1.grid()
     text_input1.grid()
-    label_input=Label(window, text="Enter consumer secret:", font=('Times', 20))
-    label_input.grid()
-#    text_input2=Entry(window, font=(20))
+    label_input2=Label(window, text="Enter consumer secret:", font=('Times', 20))
+    label_input2.grid()
     text_input2.grid()
-    label_input=Label(window, text="Enter access token:", font=('Times', 20))
-    label_input.grid()
-#    text_input3=Entry(window, font=(20))
+    label_input3=Label(window, text="Enter access token:", font=('Times', 20))
+    label_input3.grid()
     text_input3.grid()
-    label_input=Label(window, text="Enter access token secret: ", font=('Times', 20))
-    label_input.grid()
-#    text_input4=Entry(window, font=(20))
+    label_input4=Label(window, text="Enter access token secret: ", font=('Times', 20))
+    label_input4.grid()
     text_input4.grid()
-    label_input=Label(window, text="Enter latitude:", font=('Times', 20))
-    label_input.grid()
-#    text_input5=Entry(window, font=(20))
+    label_input5=Label(window, text="Enter latitude:", font=('Times', 20))
+    label_input5.grid()
     text_input5.grid()
-    label_input=Label(window, text="Enter longitude:", font=('Times', 20))
-    label_input.grid()
-#    text_input6=Entry(window, font=(20))
+    label_input6=Label(window, text="Enter longitude:", font=('Times', 20))
+    label_input6.grid()
     text_input6.grid()
-    label_input=Label(window, text="Enter radius:", font=('Times', 20))
-    label_input.grid()
-#    text_input7=Entry(window, font=(20))
+    label_input7=Label(window, text="Enter radius:", font=('Times', 20))
+    label_input7.grid()
     text_input7.grid()
     submit_btn=Button(window, text="Submit", font=('Times', 20), command=submit_twit)
     submit_btn.grid()
+    clear_twit_btn = Button(window, text="Clear", font=('Times', 20), command=clear_twit)
+    clear_twit_btn.grid()
 
 def submit_twit():
     cK=text_input1.get()
@@ -99,11 +111,19 @@ def submit_twit():
     twitter(cK, cS, aT, aS, lat, long, rad)
 
 def redd_input():
+    def clear_redd():
+        redd_lbl.grid_forget()
+        text_input8.grid_forget()
+        redd_sub_btn.grid_forget()
+        clear_redd_btn.grid_forget()
     redd_lbl=Label(window, text="Enter the subreddit to scrape:", font=('Times', 20))
     redd_lbl.grid()
     text_input8.grid()
     redd_sub_btn=Button(window, text="Submit", font=('Times', 20), command=submit_redd)
     redd_sub_btn.grid()
+    clear_redd_btn = Button(window, text="Clear", font=('Times', 20), command=clear_redd)
+    clear_redd_btn.grid()
+
 def submit_redd():
     subr=text_input8.get()
     reddit_osint(subr)

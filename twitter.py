@@ -35,7 +35,7 @@ def twitter(consumer_key, consumer_secret, access_token, access_secret, lat, lon
 	#r = input("Enter search radius in km: ")
 	geo = "{},{},{}km".format(lat, long, r)
 
-	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(100)]
+	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(200)]
 	for item in geo_tweets:
 		format["username"].append(item.user.name)
 #		if 'retweeted_status' in dir(item):

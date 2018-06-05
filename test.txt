@@ -1,6 +1,0 @@
-This is a test
-<<<<<<< HEAD
-
-And now it is more
-=======
->>>>>>> 657c6e01ed08f5fb5990825027a69871e79fa18b

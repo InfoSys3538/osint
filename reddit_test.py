@@ -36,7 +36,17 @@ def reddit_osint():
         topics_dict["comms_num"].append(submission.num_comments)
         topics_dict["body"].append(submission.selftext)
 
-    ##pandas makes this look nicer 
+    ##fixing date formatting
+    def get_date(created):
+         return dt.datetime.fromtimestamp(created)
+
+    _timestamp = topics_data["created"].apply(get_date)
+
+    topics_data = topics_data.assign(timestamp = _timestamp)
+
+    ##pandas makes this look nicer
+
+    ##pandas makes this look nicer
     topics_data = pd.DataFrame(topics_dict)
 
     ##creating csv

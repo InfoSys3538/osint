@@ -3,14 +3,15 @@ import tweepy
 import pandas as pd
 from tweepy import OAuthHandler
 
-def twitter():
+def twitter(consumer_key, consumer_secret, access_token, access_secret, lat, long, r):
 
 	try :
 
-		consumer_key = input("Enter consumer key: ")
-		consumer_secret = input("Enter consumer secret: ")
-		access_token = input("Enter access token: ")
-		access_secret = input("Enter access token secret: ")
+		#consumer_key = input("Enter consumer key: ")
+		#consumer_key = text_input.get()
+		#consumer_secret = input("Enter consumer secret: ")
+		#access_token = input("Enter access token: ")
+		#access_secret = input("Enter access token secret: ")
 
 		#connect with twitter api
 		auth = OAuthHandler(consumer_key, consumer_secret)
@@ -29,14 +30,18 @@ def twitter():
  		   "tweet":[], \
 		   "time":[]}
 
-	lat = input("Enter latitude: ")
-	long = input("Enter longitude: ")
-	r = input("Enter search radius in km: ")
+	#lat = input("Enter latitude: ")
+	#long = input("Enter longitude: ")
+	#r = input("Enter search radius in km: ")
 	geo = "{},{},{}km".format(lat, long, r)
 
-	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(1000)]
+	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(100)]
 	for item in geo_tweets:
 		format["username"].append(item.user.name)
+#		if 'retweeted_status' in dir(item):
+#			tweet=item.retweeted_status.full_text
+#		else:
+#			tweet=item.full_text
 		format["tweet"].append(item.text)
 		format["time"].append(item.created_at)
 		#Can print other information and format or write to file as needed

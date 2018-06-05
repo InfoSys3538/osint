@@ -4,7 +4,7 @@
 import praw
 import pandas as pd
 
-def reddit_osint():
+def reddit_osint(userinput):
     ##connect to reddit and store in variable 'reddit'
     reddit = praw.Reddit(client_id='e3Vgbf0tP4TLGg', \
                          client_secret='_Sy6Ybkvmgp94LekrcvT1U0EBwg', \
@@ -13,7 +13,7 @@ def reddit_osint():
                          password='sniperdude1499')
 
     ##accessing subreddit entered by user and storing it in 'subreddit'
-    userinput = input('Enter the subreddit to scrape:')
+    #userinput = input('Enter the subreddit to scrape:')
     subreddit = reddit.subreddit(userinput)
 
     ##creates a list of the top posts in the subreddit
@@ -40,3 +40,5 @@ def reddit_osint():
     ##creating csv and creating new filename if one already exists
     topics_data.to_csv("redditdata-" + userinput + ".csv")
     print('Created CSV file')
+
+#reddit_osint()

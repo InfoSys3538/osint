@@ -47,13 +47,13 @@ def clear_text():
 
 #change the label when hovering over a button for more info
 def redd_label(event):
-    lbl.configure(text="Search reddit", font=('Times', 20))
+    lbl.configure(text="Search reddit", font=('Times', 12))
 def twit_label(event):
-    lbl.configure(text="Search twitter", font=('Times', 20))
+    lbl.configure(text="Search twitter", font=('Times', 12))
 def face_label(event):
-    lbl.configure(text="Search facebook", font=('Times', 20))
+    lbl.configure(text="Search facebook", font=('Times', 12))
 def revert_label(event):
-    lbl.configure(text="Select the platform to search", font=('Times', 20))
+    lbl.configure(text="Select the platform to search", font=('Times', 12))
 
 #create entry widgets for user input
 def user_input():
@@ -75,30 +75,30 @@ def user_input():
         submit_btn.grid_forget()
         clear_twit_btn.grid_forget()
 
-    label_input1=Label(window, text="Enter consumer key", font=('Times', 20))
+    label_input1=Label(window, text="Enter consumer key", font=('Times', 12))
     label_input1.grid()
     text_input1.grid()
-    label_input2=Label(window, text="Enter consumer secret:", font=('Times', 20))
+    label_input2=Label(window, text="Enter consumer secret:", font=('Times', 12))
     label_input2.grid()
     text_input2.grid()
-    label_input3=Label(window, text="Enter access token:", font=('Times', 20))
+    label_input3=Label(window, text="Enter access token:", font=('Times', 12))
     label_input3.grid()
     text_input3.grid()
-    label_input4=Label(window, text="Enter access token secret: ", font=('Times', 20))
+    label_input4=Label(window, text="Enter access token secret: ", font=('Times', 12))
     label_input4.grid()
     text_input4.grid()
-    label_input5=Label(window, text="Enter latitude:", font=('Times', 20))
+    label_input5=Label(window, text="Enter latitude:", font=('Times', 12))
     label_input5.grid()
     text_input5.grid()
-    label_input6=Label(window, text="Enter longitude:", font=('Times', 20))
+    label_input6=Label(window, text="Enter longitude:", font=('Times', 12))
     label_input6.grid()
     text_input6.grid()
-    label_input7=Label(window, text="Enter radius:", font=('Times', 20))
+    label_input7=Label(window, text="Enter radius:", font=('Times', 12))
     label_input7.grid()
     text_input7.grid()
-    submit_btn=Button(window, text="Submit", font=('Times', 20), command=submit_twit)
+    submit_btn=Button(window, text="Submit", font=('Times', 12), command=submit_twit)
     submit_btn.grid()
-    clear_twit_btn = Button(window, text="Clear", font=('Times', 20), command=clear_twit)
+    clear_twit_btn = Button(window, text="Clear", font=('Times', 12), command=clear_twit)
     clear_twit_btn.grid()
 
 def submit_twit():
@@ -132,12 +132,12 @@ def redd_input():
         redd_sub_btn.grid_forget()
         clear_redd_btn.grid_forget()
         #label.grid_forget()
-    redd_lbl=Label(window, text="Enter the subreddit to scrape:", font=('Times', 20))
+    redd_lbl=Label(window, text="Enter the subreddit to scrape:", font=('Times', 12))
     redd_lbl.grid()
     text_input8.grid()
-    redd_sub_btn=Button(window, text="Submit", font=('Times', 20), command=submit_redd)
+    redd_sub_btn=Button(window, text="Submit", font=('Times', 12), command=submit_redd)
     redd_sub_btn.grid()
-    clear_redd_btn = Button(window, text="Clear", font=('Times', 20), command=clear_redd)
+    clear_redd_btn = Button(window, text="Clear", font=('Times', 12), command=clear_redd)
     clear_redd_btn.grid()
 
 def submit_redd():
@@ -175,7 +175,7 @@ def submit_redd():
 
 
 #formatting gui window
-lbl=Label(window, text="Select the platform to search", font=('Times', 20))
+lbl=Label(window, text="Select the platform to search", font=('Times', 12))
 lbl.grid(row=0, column=0, columnspan=3)
 padlbl=Label(window, height=1)
 padlbl.grid(row=3)
@@ -184,17 +184,17 @@ padlbl.grid(row=5)
 
 #btn stuff
 #first reddit
-reddit_btn = Button(window, text="Reddit OSINT", bg='#FF4500', font=('Times', 20), height=5, width=25, command=redd_input)
+reddit_btn = Button(window, text="Reddit OSINT", bg='#FF4500', font=('Times', 12), height=5, width=25, command=redd_input)
 reddit_btn.grid(row=2, column=0)
 reddit_btn.bind("<Enter>", redd_label)
 reddit_btn.bind("<Leave>", revert_label)
 #then twitter
-twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', font=('Times', 20), height=5, width=25, command=user_input)
+twitter_btn = Button(window, text="Twitter OSINT", bg='#0084b4', font=('Times', 12), height=5, width=25, command=user_input)
 twitter_btn.grid(row=2, column=1)
 twitter_btn.bind("<Enter>", twit_label)
 twitter_btn.bind("<Leave>", revert_label)
 #and facebook too
-facebook_btn = Button(window, text="Facebook OSINT", bg='#3b5998', font=('Times', 20), height=5, width=25, command=clicked_face)
+facebook_btn = Button(window, text="Facebook OSINT", bg='#3b5998', font=('Times', 12), height=5, width=25, command=clicked_face)
 facebook_btn.grid(row=2, column=2)
 facebook_btn.bind("<Enter>", face_label)
 facebook_btn.bind("<Leave>", revert_label)

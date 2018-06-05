@@ -16,6 +16,7 @@ import traceback
 import sys
 from twitter import twitter
 from tkinter.font import Font
+import csv
 
 
 window = Tk()
@@ -109,6 +110,20 @@ def submit_twit():
     long=text_input6.get()
     rad=text_input7.get()
     twitter(cK, cS, aT, aS, lat, long, rad)
+   #with open("twitterdata.csv", newline = "") as file:
+       #reader = csv.reader(file)
+
+       # r and c tell us where to grid the labels
+      #r = 0
+       #for col in reader:
+          #c = 0
+          #for row in col:
+             # i've added some styling
+             #label = Label(window, width = 10, height = 2, \
+                                   #text = row, relief = RIDGE)
+             #label.grid(row = r, column = c)
+             #c += 1
+          #r += 1
 
 def redd_input():
     def clear_redd():
@@ -116,6 +131,7 @@ def redd_input():
         text_input8.grid_forget()
         redd_sub_btn.grid_forget()
         clear_redd_btn.grid_forget()
+        #label.grid_forget()
     redd_lbl=Label(window, text="Enter the subreddit to scrape:", font=('Times', 20))
     redd_lbl.grid()
     text_input8.grid()

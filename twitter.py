@@ -34,15 +34,20 @@ def twitter():
 	r = input("Enter search radius in km: ")
 	geo = "{},{},{}km".format(lat, long, r)
 
-	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo).items(1000)]
+	geo_tweets = [status for status in tweepy.Cursor(api.search, geocode=geo, lang='en', tweet_mode='extended').items(100)]
 	for item in geo_tweets:
 		format["username"].append(item.user.name)
-		format["tweet"].append(item.text)
+		if 'retweeted_status' in dir(item):
+			tweet=item.retweeted_status.full_text
+		else:
+			tweet=item.full_test
+		format["tweet"].append(tweet)
+		#format["tweet"].appent(item.text)
 		format["time"].append(item.created_at)
 		#Can print other information and format or write to file as needed
 
 	format = pd.DataFrame(format)
 	format.to_csv('twitterdata.csv')
 
-#twitter()
+twitter()
 #added for testing

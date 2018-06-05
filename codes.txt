@@ -1,0 +1,11 @@
+Consumer Key (API Key) OFziCxXMnXgf98GEvyN6WVYf8
+Consumer Secret (API Secret) Q6DRtM3q6EVl3LQZTqV9zXoN2WuYDLqfCYLGnGylK8ciMA2C0U 
+
+Access Token 1002266935059472384-ujdeng5Od5RuzeXl7uInz0hxf0PdZW
+Access Token Secret y4JS7JN27DbFp8rEruySAjHZvb3eaRbwAzcUav2YzdjNo 
+
+
+Owner 2018Osint
+Owner ID 1002266935059472384 
+
+
